@@ -7,6 +7,8 @@ import {
   DialogContent,
   DialogTitle,
   Box,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import Chatbot from "./Chatbot";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
@@ -20,83 +22,107 @@ import CSRStatusComponent from "./components/CSRStatusComponent";
 import image1 from "./assests/slider1.jpg";
 import image2 from "./assests/slider2.jpg";
 import image3 from "./assests/slider3.jpg";
-import demoVideo from"./assests/demoVideo.mp4"
+import demoVideo from "./assests/demoVideo.mp4";
+import { useTranslation } from "react-i18next";
 import Slider from "./components/Slider";
+import img from "./assests/image (26).png";
+import i18n from "./i18n";
+import FINAL from "./assests/FINAL.mp4"
 
-const images=[image1,image2,image3];
-const buttonData = [
-  // { label: "CSR Status", url: "https://eservices.tnpolice.gov.in/CCTNSNICSDC/CSRStatusCheck", color: "primary", component: CSRStatusComponent },
-  // { label: "FIR Status", url: "https://eservices.tnpolice.gov.in/CCTNSNICSDC/FIRStatusCheck", color: "warning", component: FIRStatusComponent },
-  {
-    label: "Phishing Link Check",
-    url: "https://www.virustotal.com/gui/home/upload",
-    color: "primary",
-  },
-  {
-    label: "Vehicle Number Check",
-    url: "https://eservices.tnpolice.gov.in/CCTNSNICSDC/CitizenVehicleHome",
-    color: "secondary",
-  },
-  {
-    label: "CEIR Registration",
-    url: "https://www.ceir.gov.in/Home/index.jsp",
-    color: "error",
-  },
-  {
-    label: "Block lost/stolen Mobile",
-    url: "https://www.ceir.gov.in/Request/CeirUserBlockRequestDirect.jsp",
-    color: "success",
-  },
-  
-  {
-    label: "Check lost/stolen Mobile Request Status",
-    url: "https://www.ceir.gov.in/Request/CeirRequestStatus.jsp",
-    color: "warning",
-  },
-  {
-    label: "Suspect Mobile & Email Check",
-    url: "https://cybercrime.gov.in/Webform/suspect_search_repository.aspx",
-    color: "primary",
-  },
-  {
-    label: "Suspect Website & App Check",
-    url: "https://cybercrime.gov.in/Webform/suspect_search_websites.aspx",
-    color: "success",
-  },
-  {
-    label: "Report Suspect",
-    url: "https://cybercrime.gov.in/Webform/cyber_suspect.aspx",
-    color: "info",
-  },
-  {
-    label: "Cyber Volunteer Registration",
-    url: "https://cybercrime.gov.in/Webform/CyberVolunteerinstruction.aspx",
-    color: "success",
-  },
-  {
-    label: "Cyber Crime Fraud Registration",
-    url: "https://cybercrime.gov.in/Webform/Index.aspx",
-    color: "secondary",
-  },
-  {
-    label: "Cyber Crime Complaint Tracking",
-    url: "https://cybercrime.gov.in/Webform/chkackstatus.aspx",
-    color: "error",
-  },
-  {
-    label: "Check no. of sim registered",
-    url: "https://tafcop.sancharsaathi.gov.in/telecomUser/",
-    color: "warning",
-  },
-  // { label: "Register Complaint", url: "https://eservices.tnpolice.gov.in/CCTNSNICSDC/ComplaintRegistrationPage", color: "success" }
-];
-
+const images = [image1, image2, image3];
 const KioskApp = () => {
+ 
+  const { t } = useTranslation(["translationKioskApp"]);
   const [iframeUrl, setIframeUrl] = useState("");
   const [showChat, setShowChat] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [selectedComponent, setSelectedComponent] = useState(null);
+  const buttonData = [
+    // { label: "CSR Status", url: "https://eservices.tnpolice.gov.in/CCTNSNICSDC/CSRStatusCheck", color: "primary", component: CSRStatusComponent },
+    // { label: "FIR Status", url: "https://eservices.tnpolice.gov.in/CCTNSNICSDC/FIRStatusCheck", color: "warning", component: FIRStatusComponent },
+    {
+      label: t("Phishing Link Check"),
+      url: "https://www.virustotal.com/gui/home/upload",
+      color: "primary",
+      img: img,
+    },
+    {
+      label: t("Vehicle Number Check"),
+      url: "https://eservices.tnpolice.gov.in/CCTNSNICSDC/CitizenVehicleHome",
+      color: "secondary",
+      img: img,
+    },
+    {
+      label: t("CEIR Registration"),
+      url: "https://www.ceir.gov.in/Home/index.jsp",
+      color: "error",
+      img: img,
+    },
+    {
+      label: t("Block lost/stolen Mobile"),
+      url: "https://www.ceir.gov.in/Request/CeirUserBlockRequestDirect.jsp",
+      color: "success",
+      img: img,
+    },
+
+    {
+      label: t("Check lost/stolen Mobile Request Status"),
+      url: "https://www.ceir.gov.in/Request/CeirRequestStatus.jsp",
+      color: "warning",
+      img: img,
+    },
+    {
+      label: t("Suspect Mobile & Email Check"),
+      url: "https://cybercrime.gov.in/Webform/suspect_search_repository.aspx",
+      color: "primary",
+      img: img,
+    },
+    {
+      label: t("Suspect Website & App Check"),
+      url: "https://cybercrime.gov.in/Webform/suspect_search_websites.aspx",
+      color: "success",
+      img: img,
+    },
+    {
+      label: t("Report Suspect"),
+      url: "https://cybercrime.gov.in/Webform/cyber_suspect.aspx",
+      color: "info",
+      img: img,
+    },
+    {
+      label: t("Cyber Volunteer Registration"),
+      url: "https://cybercrime.gov.in/Webform/CyberVolunteerinstruction.aspx",
+      color: "success",
+      img: img,
+    },
+    {
+      label: t("Cyber Crime Fraud Registration"),
+      url: "https://cybercrime.gov.in/Webform/Index.aspx",
+      color: "secondary",
+      img: img,
+    },
+    {
+      label: t("Cyber Crime Complaint Tracking"),
+      url: "https://cybercrime.gov.in/Webform/chkackstatus.aspx",
+      color: "error",
+      img: img,
+    },
+    {
+      label: t("Check no. of sim registered"),
+      url: "https://tafcop.sancharsaathi.gov.in/telecomUser/",
+      color: "warning",
+      img: img,
+    },
+    // { label: "Register Complaint", url: "https://eservices.tnpolice.gov.in/CCTNSNICSDC/ComplaintRegistrationPage", color: "success" }
+  ];
+
+  // const KioskApp = () => {
+  //   const [iframeUrl, setIframeUrl] = useState("");
+  //   const [showChat, setShowChat] = useState(false);
+  //   const [alertOpen, setAlertOpen] = useState(false);
+  //   const [alertMessage, setAlertMessage] = useState("");
+  //   const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleAlertOpen = (message) => {
     setAlertMessage(message);
@@ -114,26 +140,25 @@ const KioskApp = () => {
   const handleButtonClick = (url, component) => {
     setIframeUrl(url);
     setSelectedComponent(component);
-    handleAlertOpen(
-      "To return to the app, close the window and it will take you back to the app window."
-    );
+    handleAlertOpen(t("Alert MSG"));
   };
 
   const toggleChat = () => {
     setShowChat(!showChat);
   };
-
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
   return (
     <>
-  
-      <Typography
+      <Box
         sx={{
           background: "#b2dcf0",
           color: "#07323b",
           padding: "20px",
           display: "flex",
           alignItems: "center",
-          opacity:"0.5",
+          // opacity: "0.5",
           justifyContent: "space-between",
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
           transition: "box-shadow 0.3s ease-in-out",
@@ -141,52 +166,58 @@ const KioskApp = () => {
         }}
       >
         <Box>
-        <img
-          src={policelogo}
-          alt="Cyber Crime Logo"
-          style={{ height: "80px", marginRight: "20px" }}
-        />
-        <img
-          src={logo}
-          alt="Cyber Crime Logo"
-          style={{ height: "70px", marginRight: "20px" }}
-        />
+          <img
+            src={policelogo}
+            alt="Cyber Crime Logo"
+            style={{ height: "80px" }}
+          />
+          <img
+            src={logo}
+            alt="Cyber Crime Logo"
+            style={{ height: "70px", marginRight: "20px" }}
+          />
         </Box>
-      
-        <span
+
+        <Box
           style={{
             fontWeight: "bold",
             fontSize: "50px",
-            marginRight: "700px",
-            transition: "color 0.3s ease-in-out",
-            "&:hover": { color: "#f00" },
+            marginRight: "80px",
           }}
         >
-          Cyber Crime Portal
-        </span>
-      </Typography>
-      {/* <Slider images={images} /> */}
+          {t("Help Desk")}
+        </Box>
+        <Box>
+          <Select
+            value={i18n.language}
+            onChange={(e) => changeLanguage(e.target.value)}
+          >
+            <MenuItem value="en">English</MenuItem>
+            <MenuItem value="ta">தமிழ்</MenuItem>
+          </Select>
+        </Box>
+      </Box>
+       {/* <Slider images={images}/> */}
       <div
         style={{
-          backgroundImage: `linear-gradient(rgba(129, 132, 134, 0.5), rgba(31, 112, 150, 0.5)), url(${background})`, // Overlay with semi-transparent black
-          backgroundSize: "cover", // Cover the entire area
-          backgroundPosition: "center", // Center the image
+          backgroundImage: `linear-gradient(rgba(129, 132, 134, 0.5), rgba(31, 112, 150, 0.5)), url(${background})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           backgroundColor: "rgba(255, 255, 255, 0.5)",
           height: "100%",
-          width: "100%",
+          justifyContent: "space-between",
+          alignItems: "center",
           display: "flex",
-          flexDirection: "row",
-          padding: "20px",
+          marginTop: "20px",
         }}
       >
         <div
           style={{
-            height: "100vh",
-            width: "300px",
             display: "flex",
             flexDirection: "column",
-            marginLeft: "10px",
-            alignItems: "flex-start",
+            justifyContent: "space-around",
+            alignItems: "center",
+            height: "80vh",
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
             transition: "box-shadow 0.3s ease-in-out",
             "&:hover": { boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)" },
@@ -197,47 +228,90 @@ const KioskApp = () => {
               key={index}
               sx={{
                 height: "100px",
-                width: "300px",
+                width: "350px",
                 fontSize: "1.2rem",
                 opacity: "0.8",
-                marginBottom: "10px",
-                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                color: "black",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                // boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
                 transition: "transform 0.3s ease-in-out",
                 "&:hover": { transform: "scale(1.1)" },
               }}
-              variant="contained"
-              color={button.color}
               onClick={() => handleButtonClick(button.url, button.component)}
             >
-              {button.label}
+              <div
+                style={{
+                  position: "relative",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "10vh",
+                }}
+              >
+                <img
+                  src={button.img}
+                  alt={button.label}
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "35%",
+                    left: "55%",
+                    transform: "translate(-50%, -50%)",
+                    textAlign: "center",
+                    color: "white",
+                    fontWeight:"bolder",
+                    fontSize: "14px",
+                    color: "black !important",
+                    width: "80%",
+                  }}
+                >
+                  {button.label}
+                </div>
+              </div>
             </Button>
           ))}
         </div>
-        <div style={{ margin: "10px 10px", width: "100%" }}>
-          {/* {selectedComponent && <selectedComponent />} */}
-          {/* Video Player */}
+        <div
+          style={{
+            margin: "10px 10px",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <video
-            controls
+            id="my-video-player"
+            class="video-js vjs-default-skin vjs-big-play-centered"
+            preload="true"
+            fluid="true"
+            controls="true"
+            muted="true"
+            autoplay="true"
+            data-setup='{"loop": true}'
             style={{
-              width: "100%",
+              width: "95%",
               height: "auto",
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
               transition: "box-shadow 0.3s ease-in-out",
-              "&:hover": { boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)" }
+              "&:hover": { boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)" },
             }}
           >
-            <source src={demoVideo} type="video/mp4" />
-            Your browser does not support the video tag.
+            <source src={FINAL} type="video/mp4" />
           </video>
+          <script>const player = videojs('my-video-player');</script>
         </div>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            height: "100vh",
-            width: "300px",
-            marginLeft: "10px",
-            alignItems: "flex-end",
+            justifyContent: "space-around",
+            alignItems: "center",
+            height: "80vh",
+            marginRight: "18px",
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
             transition: "box-shadow 0.3s ease-in-out",
             "&:hover": { boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)" },
@@ -248,22 +322,53 @@ const KioskApp = () => {
               key={index}
               sx={{
                 height: "100px",
-                width: "300px",
-                opacity: "0.8",
+                width: "350px",
                 fontSize: "1.2rem",
-                marginBottom: "10px",
+                opacity: "0.8",
+                color: "black",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                // boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
                 transition: "transform 0.3s ease-in-out",
                 "&:hover": { transform: "scale(1.1)" },
               }}
-              variant="contained"
-              color={button.color}
               onClick={() => handleButtonClick(button.url, button.component)}
             >
-              {button.label}
+              <div
+                style={{
+                  position: "relative",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "10vh",
+                }}
+              >
+                <img
+                  src={button.img}
+                  alt={button.label}
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "35%",
+                    left: "55%",
+                    transform: "translate(-50%, -50%)",
+                    textAlign: "center",
+                    color: "white",
+                    fontWeight: "bold",
+                    fontSize: "13px",
+                    color: "black !important",
+                    width: "80%",
+                  }}
+                >
+                  {button.label}
+                </div>
+              </div>
             </Button>
           ))}
         </div>
-   
       </div>
       {showChat && <Chatbot />}
       <Button
@@ -272,7 +377,7 @@ const KioskApp = () => {
         style={{
           position: "fixed",
           bottom: "20px",
-          right: "325px",
+          right: "29px",
           borderRadius: "40%",
           height: "50px",
           width: "50px",
@@ -285,18 +390,18 @@ const KioskApp = () => {
         {showChat ? <CloseOutlinedIcon /> : <ChatOutlinedIcon />}
       </Button>
       <Dialog open={alertOpen} onClose={() => handleAlertClose(false)}>
-        <DialogTitle>Alert</DialogTitle>
+        <DialogTitle>{t("Alert")}</DialogTitle>
         <DialogContent>{alertMessage}</DialogContent>
         <DialogActions>
           <Button onClick={() => handleAlertClose(false)} color="primary">
-            Cancel
+            {t("Cancel")}
           </Button>
           <Button
             onClick={() => handleAlertClose(true)}
             color="primary"
             autoFocus
           >
-            Go
+            {t("Go")}
           </Button>
         </DialogActions>
       </Dialog>

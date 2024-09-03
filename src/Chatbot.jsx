@@ -1,14 +1,16 @@
 import React from "react";
 import ChatBot from "react-simple-chatbot";
 import { Segment } from "semantic-ui-react";
+import { useTranslation } from "react-i18next";
 import avatar from "./assests/avatar.jpg";
 function Chatbot() {
+  const {t}=useTranslation(["translationChatbot"])
   console.log("test chatbot");
   const steps = [
     {
       id: "Greet",
       message:
-        "Hello, Welcome to the Cyber Crime Portal chatbot. How can I assist you?",
+      t("Welcome Message"),
       trigger: "UserInput",
     },
     {
@@ -18,20 +20,20 @@ function Chatbot() {
     },
     {
       id: "QueryResolved",
-      message: "Did the response resolve your query?",
+      message: t("Did the response resolve your query?"),
       trigger: "Options",
     },
     {
       id: "Options",
       options: [
-        { value: "yes", label: "Yes", trigger: "YesEnd" },
-        { value: "no", label: "No", trigger: "UserQuery" },
-        { value: "other", label: "Other", trigger: "UserQuery" },
+        { value: "yes", label: t("Yes"), trigger: "YesEnd" },
+        { value: "no", label: t("No"), trigger: "UserQuery" },
+        { value: "other", label: t("Other"), trigger: "UserQuery" },
       ],
     },
     {
       id: "UserQuery",
-      message: "Please type your query:",
+      message: t("Please type your query:"),
       trigger: "QueryResponse",
     },
     {
@@ -42,12 +44,12 @@ function Chatbot() {
     {
       id: "NoEnd",
       message:
-        "Thank you for your query. I will get back to you shortly with a response.",
+        t("Thank you for your query. I will get back to you shortly with a response."),
       end: true,
     },
     {
       id: "YesEnd",
-      message: "Thank you.",
+      message: t("Thank you."),
       end: true,
     },
   ];
@@ -80,7 +82,7 @@ function Chatbot() {
         avatarStyle={{ width: "50px", height: "50px", borderRadius: "50%" }} // Adjust avatar size and shape
         botAvatar={avatar} // Set custom avatar URL
         bubbleStyle={chatBotStyle} // Apply custom styles to the chat bubbles
-        headerTitle="Cyber Crime Portal"
+        headerTitle={t("Cyber Crime Portal")}
         headerStyle={headerStyle} // Apply custom header styles
         style={{
           background: "#f0f0f0", // Change background color

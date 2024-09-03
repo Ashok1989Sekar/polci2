@@ -1,0 +1,20 @@
+{
+    "Help Desk": "உதவி மையம்",
+    "Phishing Link Check": "ஃபிஷிங் இணைப்பு சரிபார்ப்பு",
+    "Vehicle Number Check":"வாகன எண் சோதனை",
+    "CEIR Registration":"CEIR பதிவு",
+    "Block lost/stolen Mobile":"தொலைந்த/திருடப்பட்ட மொபைலைத் தடு",
+    "Check lost/stolen Mobile Request Status":"தொலைந்த/திருடப்பட்ட மொபைல் கோரிக்கை நிலையைச் சரிபார்க்கவும்",
+    "Suspect Mobile & Email Check":"சந்தேகத்திற்குரிய மொபைல் & மின்னஞ்சல் சோதனை",
+    "Suspect Website & App Check":"சந்தேகத்திற்குரிய இணையதளம் & ஆப் சோதனை",
+    "Report Suspect":"சந்தேக நபரைப் புகாரளிக்கவும்",
+    "Cyber Volunteer Registration":"சைபர் தன்னார்வப் பதிவு",
+    "Cyber Crime Fraud Registration":"சைபர் கிரைம் மோசடி பதிவு",
+    "Cyber Crime Complaint Tracking":"சைபர் கிரைம் புகார் கண்காணிப்பு",
+    "Check no. of sim registered":"பதிவு செய்யப்பட்ட சிம் எண் சரிபார்க்கவும்",
+    "Alert MSG":"பயன்பாட்டிற்குத் திரும்ப, சாளரத்தை மூடவும், அது உங்களை மீண்டும் பயன்பாட்டு சாளரத்திற்கு அழைத்துச் செல்லும்.",
+    "Alert":"எச்சரிக்கை",
+    "Go":"செல்",
+    "Cancel":"ரத்து செய்"
+    
+  }
