@@ -5,6 +5,7 @@ const FIRStatusComponent = () => {
   const handleButtonClick = (url) => {
     window.open(url, "_blank");
   };
+  console.log("came")
   return (
     <Box
       sx={{
